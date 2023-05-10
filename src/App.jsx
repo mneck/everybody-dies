@@ -10,15 +10,15 @@ function App() {
         <h1>Everybody dies.</h1>
         <h2>Plan for it.</h2>
         <div className="home-page-buttons">
-          <p className="read-the-docs">Sign Up</p>
-          <p className="read-the-docs">Log In</p>
+          <button className="read-the-docs">Sign Up</button>
+          <button className="read-the-docs">Log In</button>
         </div>
       </div>
       <div className="card">
         <button
           onClick={() => setCount((count) => count + 1)}
         >
-          Death is one click closer: {count}
+          About {count}
         </button>
       </div>
     </>
