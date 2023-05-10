@@ -9,11 +9,8 @@
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #5b5b5b;
-}
-
 .home-page-buttons {
+  color: #5b5b5b;
   display: flex;
   flex-direction: row;
   align-items: center;
