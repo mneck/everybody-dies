@@ -6,6 +6,10 @@
 }
 
 /* HomePage styles */
+.app-vh-container {
+  min-height: 100vh;
+}
+
 .card {
   padding: 2em;
 }
@@ -45,12 +49,12 @@
 
 .signup-login-form {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: left;
+  flex-direction: column;
+  align-items: center;
 }
 
 .signup-login-form-item {
-  margin-left: 0.8rem;
-  margin-right: 0.8rem;
+  display: block;
+  margin-bottom: 20px;
+  width: 200px;
 }
