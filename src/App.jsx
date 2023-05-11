@@ -1,12 +1,14 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
+import CreatePage from "./pages/CreatePage";
+import CreatePoaPage from "./pages/CreatePoaPage";
+import CreateWillPage from "./pages/CreateWillPage";
 import Footer from "./components/Footer";
-
-import ReactDOM from "react-dom/client";
 
 function App() {
   return (
@@ -19,6 +21,15 @@ function App() {
           <Route
             path="/profile"
             element={<ProfilePage />}
+          />
+          <Route path="/create" element={<CreatePage />} />
+          <Route
+            path="/create/poa"
+            element={<CreatePoaPage />}
+          />
+          <Route
+            path="/create/will"
+            element={<CreateWillPage />}
           />
         </Routes>
       </div>

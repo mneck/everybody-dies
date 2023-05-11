@@ -16,6 +16,7 @@ function Footer() {
           <Link to="/profile">
             <button>Profile</button>
           </Link>
+
           <button onClick={logOutUser}>Logout</button>
           <span>{user && user.name}</span>
         </div>

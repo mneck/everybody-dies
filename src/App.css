@@ -14,7 +14,7 @@
   padding: 2em;
 }
 
-.home-page-buttons {
+.simple-page-buttons {
   color: #5b5b5b;
   display: flex;
   flex-direction: row;
@@ -45,6 +45,10 @@
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
 }
 
+.modal-text {
+  text-align: left;
+}
+
 /* SignUpPage styles */
 
 .signup-login-form {
@@ -57,4 +61,14 @@
   display: block;
   margin-bottom: 20px;
   width: 200px;
+}
+
+/* Footer styles */
+
+nav {
+  margin-left: 50px;
+  margin-right: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
