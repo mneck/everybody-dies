@@ -5,6 +5,7 @@
   text-align: center;
 }
 
+/* HomePage styles */
 .card {
   padding: 2em;
 }
@@ -38,4 +39,18 @@
   z-index: 10;
   border-radius: 16px;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+}
+
+/* SignUpPage styles */
+
+.signup-login-form {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: left;
+}
+
+.signup-login-form-item {
+  margin-left: 0.8rem;
+  margin-right: 0.8rem;
 }
