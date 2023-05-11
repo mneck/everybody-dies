@@ -30,7 +30,7 @@ function LoginPage(props) {
 
         storeToken(response.data.authToken);
 
-        navigate("/");
+        navigate("/profile");
       })
       .catch((error) => {
         const errorDescription =
