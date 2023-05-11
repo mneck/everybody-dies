@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 function ProfilePage() {
   return (
-    <div>
+    <div className="app-vh-container">
       <h1>My Profile</h1>
 
       <button>
@@ -17,16 +18,10 @@ function ProfilePage() {
       <button>
         <p>Document 2</p>
       </button>
-
-      <h2>My Data</h2>
-      <button>
-        <p>Document 1 Data</p>
-      </button>
-      <button>
-        <p>Document 2 Data</p>
-      </button>
     </div>
   );
 }
+
+<Footer />;
 
 export default ProfilePage;

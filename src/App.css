@@ -46,7 +46,9 @@
 }
 
 .modal-text {
-  text-align: left;
+  text-align: justify;
+  width: 70vw;
+  font-size: 0.8em;
 }
 
 /* SignUpPage styles */

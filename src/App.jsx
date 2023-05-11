@@ -8,32 +8,25 @@ import ProfilePage from "./pages/ProfilePage";
 import CreatePage from "./pages/CreatePage";
 import CreatePoaPage from "./pages/CreatePoaPage";
 import CreateWillPage from "./pages/CreateWillPage";
-import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
-      <div className="app-vh-container">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route
-            path="/profile"
-            element={<ProfilePage />}
-          />
-          <Route path="/create" element={<CreatePage />} />
-          <Route
-            path="/create/poa"
-            element={<CreatePoaPage />}
-          />
-          <Route
-            path="/create/will"
-            element={<CreateWillPage />}
-          />
-        </Routes>
-      </div>
-      <Footer />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/create" element={<CreatePage />} />
+        <Route
+          path="/create/poa"
+          element={<CreatePoaPage />}
+        />
+        <Route
+          path="/create/will"
+          element={<CreateWillPage />}
+        />
+      </Routes>
     </>
   );
 }

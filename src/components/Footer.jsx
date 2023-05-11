@@ -8,6 +8,7 @@ function Footer() {
 
   return (
     <nav>
+      {console.log("Hello!")}
       <Link to="/">
         <button>Home</button>
       </Link>

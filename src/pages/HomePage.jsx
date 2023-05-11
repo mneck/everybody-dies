@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import AboutModal from "../components/AboutModal";
+import Modal from "../components/Modal";
 
 function HomePage() {
   const [showModal, setShowModal] = useState(false);
 
-  const handlePlanClick = () => {
+  const handleModalClick = () => {
     setShowModal(true);
     if (showModal === true) {
       setShowModal(false);
@@ -20,7 +20,7 @@ function HomePage() {
     <>
       <div>
         <h1>Everybody dies.</h1>
-        <button onClick={handlePlanClick}>
+        <button onClick={handleModalClick}>
           <h2>Plan for it.</h2>
         </button>
         <div className="simple-page-buttons">
@@ -33,12 +33,11 @@ function HomePage() {
         </div>
       </div>
       {showModal && (
-        <AboutModal handleCloseModal={handleCloseModal}>
+        <Modal handleCloseModal={handleCloseModal}>
           <p className="modal-text">
-            Everybody Dies gives you tools to consider how
-            to create specific estate planning documents.
-            Here's how it works: a chatbot prompts asks you
-            questions and gives suggestions to collect
+            Everybody Dies gives you tools to create estate
+            planning documents. A chatbot prompts you with
+            questions and suggestions to collect
             information. That data is then used to generate
             drafts of a will or power of attorney based on
             precedents published by the Continuing Legal
@@ -50,6 +49,14 @@ function HomePage() {
             .
           </p>
           <p className="modal-text">
+            Although these documents and questions would be
+            most relevant to residents of British Columbia,
+            Canada, the questions, information, and
+            documents provided in this web application
+            should be useful to anyone curious about making
+            a will or other estate planning documents.
+          </p>
+          <p className="modal-text">
             This application and any documents it generates
             are created for demonstration purposes only.
             None of the content on this website is intended
@@ -57,7 +64,7 @@ function HomePage() {
             contact a lawyer, who can ensure your documents
             meet your needs and are executed correctly.
           </p>
-        </AboutModal>
+        </Modal>
       )}
     </>
   );
