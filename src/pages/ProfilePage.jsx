@@ -6,17 +6,23 @@ function ProfilePage() {
     <div>
       <div className="app-vh-container">
         <h1>My Profile</h1>
-        <button>
-          <h2>Create a Document</h2>
-        </button>
+        <Link to="/create">
+          <button>
+            <h2>Create a Document</h2>
+          </button>
+        </Link>
         <h2>My Documents</h2>
-        <button>
-          <p>Document 1</p>
-        </button>
+        <Link to="/doc1">
+          <button>
+            <p>Document 1</p>
+          </button>
+        </Link>
         <div></div>
-        <button>
-          <p>Document 2</p>
-        </button>
+        <Link to="/doc2">
+          <button>
+            <p>Document 2</p>
+          </button>
+        </Link>
       </div>
       <Footer />
     </div>

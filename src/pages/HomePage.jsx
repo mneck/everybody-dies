@@ -39,14 +39,12 @@ function HomePage() {
             planning documents. A chatbot prompts you with
             questions and suggestions to collect
             information. That data is then used to generate
-            drafts of a will or power of attorney based on
-            precedents published by the Continuing Legal
-            Education Society of British Columbia. You can
-            read more about these documents{" "}
+            drafts of a will or power of attorney based on{" "}
             <a href="https://www.cle.bc.ca/wills-and-personal-planning-precedents-an-annotated-guide">
-              here
-            </a>
-            .
+              precedents{" "}
+            </a>{" "}
+            published by the Continuing Legal Education
+            Society of British Columbia.
           </p>
           <p className="modal-text">
             Although these documents and questions would be

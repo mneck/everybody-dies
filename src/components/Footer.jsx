@@ -9,15 +9,22 @@ function Footer() {
   return (
     <nav>
       {isLoggedIn && (
-        <div>
-          <Link to="/">
-            <button>Home</button>
-          </Link>
-          <Link to="/profile">
-            <button>Profile</button>
-          </Link>
-
-          <button onClick={logOutUser}>Logout</button>
+        <div className="footer-items">
+          <div>
+            <Link to="/">
+              <button>Home</button>
+            </Link>
+          </div>
+          <div>
+            <Link to="/profile">
+              <button>Profile</button>
+            </Link>
+          </div>
+          <div>
+            <Link to="/">
+              <button onClick={logOutUser}>Logout</button>
+            </Link>
+          </div>
           <span>{user && user.name}</span>
         </div>
       )}

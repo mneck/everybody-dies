@@ -19,37 +19,31 @@ function CreatePage() {
 
   return (
     <>
-      <h1>What kind of document do you want to create?</h1>
-      <div className="simple-page-buttons">
+      <div className="app-vh-container create-page-items">
+        <h1>I want to create a:</h1>
+        <Link to="/create/will">
+          <button>
+            <h1>will</h1>
+          </button>
+        </Link>
+        <Link to="/create/poa">
+          <button>
+            <h1>power of attorney</h1>
+          </button>
+        </Link>
         <button>
-          <h2>A will</h2>
-        </button>
-        <button onClick={handleModalClick}>
-          <p>What is a will?</p>
+          <h2 onClick={handleModalClick}>
+            What are these things?
+          </h2>
         </button>
         {showModal && (
           <Modal handleCloseModal={handleCloseModal}>
             <p className="modal-text">
               A will provides instructions on how to
               distribute your belongings and assets after
-              you pass away. One or more executors are
-              assigned to carry out this distribution.
+              you pass away. You can assign one or more
+              executors to handle this distribution.
             </p>
-            <button onClick={handleCloseModal}>
-              Close
-            </button>
-          </Modal>
-        )}
-        <button>
-          <h2>A power of attorney</h2>
-        </button>
-        <button>
-          <p onClick={handleModalClick}>
-            What is a power of attorney?
-          </p>
-        </button>
-        {showModal && (
-          <Modal handleCloseModal={handleCloseModal}>
             <p className="modal-text">
               A power of attorney grants a person (an
               "attorney") the power to handle another
@@ -59,9 +53,6 @@ function CreatePage() {
               your taxes, a power of attorney would give
               your spouse the ability to do so.
             </p>
-            <button onClick={handleCloseModal}>
-              Close
-            </button>
           </Modal>
         )}
       </div>
