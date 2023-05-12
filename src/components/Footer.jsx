@@ -8,12 +8,11 @@ function Footer() {
 
   return (
     <nav>
-      {console.log("Hello!")}
-      <Link to="/">
-        <button>Home</button>
-      </Link>
       {isLoggedIn && (
         <div>
+          <Link to="/">
+            <button>Home</button>
+          </Link>
           <Link to="/profile">
             <button>Profile</button>
           </Link>
