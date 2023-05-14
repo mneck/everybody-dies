@@ -6,8 +6,7 @@ import SignupPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
 import CreatePage from "./pages/CreatePage";
-import CreatePoaPage from "./pages/CreatePoaPage";
-import CreateWillPage from "./pages/CreateWillPage";
+import PoaQuestionnaire from "./pages/PoaQuestionnaire";
 
 function App() {
   return (
@@ -20,12 +19,14 @@ function App() {
         <Route path="/create" element={<CreatePage />} />
         <Route
           path="/create/poa"
-          element={<CreatePoaPage />}
+          element={<PoaQuestionnaire />}
         />
+        {/*}
         <Route
           path="/create/will"
           element={<CreateWillPage />}
         />
+  */}
       </Routes>
     </>
   );
