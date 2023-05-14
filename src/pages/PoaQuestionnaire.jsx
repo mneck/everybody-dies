@@ -14,12 +14,8 @@ function PoaQuestionnaire() {
     return e.para;
   });
 
-  const inputTypes = poaCues.map((e) => {
-    if (e.inputType === "button") {
-      return;
-    } else {
-      return e.inputType;
-    }
+  const visibility = poaCues.map((e) => {
+    return e.isVisible;
   });
 
   const handleSubmit = (e) => {
@@ -35,15 +31,17 @@ function PoaQuestionnaire() {
     <div>
       {currentQuestion < questions.length ? (
         <form onSubmit={handleSubmit}>
-          {console.log(questions)}
           <h1>{questions[currentQuestion]}</h1>
           <p>{paras[currentQuestion]}</p>
 
-          <input
-            type={inputTypes[currentQuestion]}
-            name={currentQuestion}
-          />
-
+          {visibility[currentQuestion] ? (
+            <input
+              type={paras[currentQuestion]}
+              name={currentQuestion}
+            />
+          ) : (
+            <span></span>
+          )}
           <button type="submit">Next</button>
         </form>
       ) : (
