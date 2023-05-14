@@ -36,10 +36,10 @@ function HomePage() {
         <Modal handleCloseModal={handleCloseModal}>
           <p className="modal-text">
             Everybody Dies gives you tools to create estate
-            planning documents. A chatbot prompts you with
-            questions and suggestions to collect
-            information. That data is then used to generate
-            drafts of a will or power of attorney based on{" "}
+            planning documents. A series of questions and
+            prompts collect your information, which is then
+            used to generate drafts of a will or power of
+            attorney based on{" "}
             <a href="https://www.cle.bc.ca/wills-and-personal-planning-precedents-an-annotated-guide">
               precedents{" "}
             </a>{" "}
