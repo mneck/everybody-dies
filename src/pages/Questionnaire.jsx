@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import poaCues from "../constants/poaCues";
+import Footer from "../components/Footer";
 
 function Questionnaire() {
   const [answers, setAnswers] = useState({});
@@ -47,7 +48,9 @@ function Questionnaire() {
           ) : (
             <span></span>
           )}
-          <button type="submit">Next</button>
+          <div>
+            <button type="submit">Next</button>
+          </div>
         </form>
       ) : (
         <div>
@@ -55,6 +58,7 @@ function Questionnaire() {
           <pre>{JSON.stringify(answers, null, 2)}</pre>
         </div>
       )}
+      <Footer />
     </div>
   );
 }
