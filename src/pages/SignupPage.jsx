@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 // switch with env variable later
-const API_URL = "http://localhost:5005";
+const API_URL = import.meta.env.VITE_APP_SERVER_URL;
 
 function SignupPage(props) {
   const [email, setEmail] = useState("");

@@ -6,7 +6,7 @@ class AuthService {
     this.api = axios.create({
       baseURL:
         import.meta.env.VITE_APP_SERVER_URL ||
-        "http://localhost:5005",
+        process.env.API_URL,
       // We set our API's base URL so that all requests use the same base URL
     });
 
