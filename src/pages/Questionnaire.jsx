@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import poaCues from "../constants/poaCues";
 
-function PoaQuestionnaire() {
+function Questionnaire() {
   const [answers, setAnswers] = useState({});
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
@@ -15,7 +15,11 @@ function PoaQuestionnaire() {
   });
 
   const visibility = poaCues.map((e) => {
-    return e.isVisible;
+    return e.inputIsVisible;
+  });
+
+  const inputType = poaCues.map((e) => {
+    return e.inputType;
   });
 
   const handleSubmit = (e) => {
@@ -25,6 +29,7 @@ function PoaQuestionnaire() {
     const formData = Object.fromEntries(data.entries());
     setAnswers({ ...answers, ...formData });
     setCurrentQuestion(currentQuestion + 1);
+    e.target.reset();
   };
 
   return (
@@ -36,7 +41,7 @@ function PoaQuestionnaire() {
 
           {visibility[currentQuestion] ? (
             <input
-              type={paras[currentQuestion]}
+              type={inputType[currentQuestion]}
               name={currentQuestion}
             />
           ) : (
@@ -54,4 +59,4 @@ function PoaQuestionnaire() {
   );
 }
 
-export default PoaQuestionnaire;
+export default Questionnaire;

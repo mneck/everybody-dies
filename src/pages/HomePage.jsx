@@ -31,6 +31,7 @@ function HomePage() {
             <button>Log In</button>
           </Link>
         </div>
+        <h1>🥀 </h1>
       </div>
       {showModal && (
         <Modal handleCloseModal={handleCloseModal}>

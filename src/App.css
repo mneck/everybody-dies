@@ -88,3 +88,10 @@
   justify-content: center;
   flex-wrap: nowrap;
 }
+
+/* Questionnaire button */
+
+.questionnaire-form {
+  bottom: 100px;
+  position: fixed;
+}
