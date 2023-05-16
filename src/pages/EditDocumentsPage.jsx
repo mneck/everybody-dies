@@ -4,23 +4,23 @@ import axios from "axios";
 
 const API_URL = import.meta.env.VITE_APP_SERVER_URL;
 
-function EditDocumentPage(props) {
+function EditDocumentsPage(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
   const { documentId } = useParams();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    axios
-      .get(`${API_URL}/api/documents/${documentId}`)
-      .then((response) => {
-        const oneDocument = response.data;
-        setTitle(oneDocument.title);
-        setDescription(oneDocument.description);
-      })
-      .catch((error) => console.log(error));
-  }, [documentId]);
+  // useEffect(() => {
+  //   axios
+  //     .get(`${API_URL}/api/documents/${documentId}`)
+  //     .then((response) => {
+  //       const oneDocument = response.data;
+  //       setTitle(oneDocument.title);
+  //       setDescription(oneDocument.description);
+  //     })
+  //     .catch((error) => console.log(error));
+  // }, [documentId]);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -58,13 +58,6 @@ function EditDocumentPage(props) {
           onChange={(e) => setTitle(e.target.value)}
         />
 
-        <label>Description:</label>
-        <textarea
-          name="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-
         <button type="submit">Update Document</button>
       </form>
 
@@ -75,4 +68,4 @@ function EditDocumentPage(props) {
   );
 }
 
-export default EditDocumentPage;
+export default EditDocumentsPage;

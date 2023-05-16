@@ -4,6 +4,7 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
@@ -11,7 +12,9 @@ import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
 import CreatePage from "./pages/CreatePage";
 import Questionnaire from "./pages/Questionnaire";
-import EditDocumentPage from "./pages/EditDocumentPage";
+import EditDocumentsPage from "./pages/EditDocumentsPage";
+import Review from "./pages/Review";
+import NoPage from "./pages/NoPage";
 
 function App() {
   return (
@@ -28,8 +31,11 @@ function App() {
         />
         <Route
           path="/edit"
-          element={<EditDocumentPage />}
+          element={<EditDocumentsPage />}
         />
+        <Route path="*" element={<NoPage />} />
+
+        <Route path="/review/:id" element={<Review />} />
       </Routes>
     </>
   );

@@ -80,10 +80,7 @@ function Questionnaire() {
           </p>
 
           <pre>{JSON.stringify(answers, null, 2)}</pre>
-          <AddDocument
-            answers={answers}
-            setAnswers={setAnswers}
-          />
+          <AddDocument answers={answers} />
         </div>
       )}
       <Footer />
