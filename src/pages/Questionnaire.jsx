@@ -43,14 +43,12 @@ function Questionnaire() {
     const data = new FormData(form);
     const cueId = cues[currentQuestion].cueId;
     const formData = Object.fromEntries(data.entries());
-    formData[cueId] = formData[currentQuestion];
-    delete formData[currentQuestion];
-    setAnswers({ ...answers, ...formData });
+    formData[cueId] = formData[currentQuestion.toString()];
+    delete formData[currentQuestion.toString()];
+    const newAnswers = { ...answers, ...formData };
+    setAnswers(newAnswers);
     setCurrentQuestion(currentQuestion + 1);
     e.target.reset();
-    const requestOptions = {
-      method: "POST",
-    };
   };
 
   return (
@@ -69,15 +67,23 @@ function Questionnaire() {
             <span></span>
           )}
           <div>
-            <button type="submit">Next</button>
+            <span>
+              <button type="submit">Next</button>
+            </span>
           </div>
         </form>
       ) : (
         <div>
           <h1>Thank you for your answers!</h1>
+          <p>
+            Give your document a title and click submit.
+          </p>
 
           <pre>{JSON.stringify(answers, null, 2)}</pre>
-          <AddDocument />
+          <AddDocument
+            answers={answers}
+            setAnswers={setAnswers}
+          />
         </div>
       )}
       <Footer />

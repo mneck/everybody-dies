@@ -4,28 +4,26 @@ import axios from "axios";
 const API_URL = import.meta.env.VITE_APP_SERVER_URL;
 
 function AddDocument(props) {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [title, setTitle] = useState("Title goes here");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const requestBody = { title, description };
+    const requestBody = { title, answers: props.answers };
 
     axios
-      .post(`${API_URL}/api/documents`, requestBody)
+      .post(`${API_URL}/api/submitAnswers`, requestBody)
+      .then(console.log(requestBody))
       .then((response) => {
         // Reset the state
+        props.setAnswers({});
         setTitle("");
-        setDescription("");
-        props.refreshDocuments();
       })
       .catch((error) => console.log(error));
   };
 
   return (
     <div>
-      <h2>Add Document</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
