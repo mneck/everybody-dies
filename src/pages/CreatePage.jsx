@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Modal from "../components/Modal";
 import Footer from "../components/Footer";
 
 function CreatePage() {
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
 
   const handleModalClick = () => {
@@ -17,20 +18,27 @@ function CreatePage() {
     setShowModal(false);
   };
 
+  const handleCreateClick = (type) => {
+    navigate(`/questionnaire?type=${type}`);
+  };
+
   return (
     <>
       <div className="app-vh-container create-page-items">
         <h1>I want to create a:</h1>
-        <Link to="/create/will">
-          <button>
+
+        <Link to="/questionnaire?type=will">
+          <button onClick={() => handleCreateClick("will")}>
             <h1>will</h1>
           </button>
         </Link>
-        <Link to="/create/poa">
-          <button>
+
+        <Link to="/questionnaire?type=poa">
+          <button onClick={() => handleCreateClick("poa")}>
             <h1>power of attorney</h1>
           </button>
         </Link>
+
         <button>
           <h2 onClick={handleModalClick}>
             What are these things?

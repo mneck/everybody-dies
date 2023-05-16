@@ -1,5 +1,9 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
@@ -7,6 +11,7 @@ import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
 import CreatePage from "./pages/CreatePage";
 import Questionnaire from "./pages/Questionnaire";
+import EditDocumentPage from "./pages/EditDocumentPage";
 
 function App() {
   return (
@@ -18,15 +23,13 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/create" element={<CreatePage />} />
         <Route
-          path="/create/poa"
+          path="/questionnaire"
           element={<Questionnaire />}
         />
-        {/*}
         <Route
-          path="/create/will"
-          element={<CreateWillPage />}
+          path="/edit"
+          element={<EditDocumentPage />}
         />
-  */}
       </Routes>
     </>
   );

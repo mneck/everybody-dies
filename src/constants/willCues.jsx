@@ -1,6 +1,6 @@
-const poaCues = [
+const willCues = [
   {
-    cue: `Hello! 👋 To start, what is your full legal name?`,
+    cue: `Hey there! What is your full legal name?`,
     inputType: "text",
     answerId: "clientName",
     inputIsVisible: true,
@@ -23,3 +23,5 @@ const poaCues = [
     inputIsVisible: false,
   },
 ];
+
+export default willCues;

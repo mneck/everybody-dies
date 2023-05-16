@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Footer from "../components/Footer";
 import axios from "axios";
+import AddDocument from "../components/AddDocument";
 
 const API_URL = import.meta.env.VITE_APP_SERVER_URL;
 
@@ -29,11 +30,6 @@ function ProfilePage() {
           </button>
         </Link>
         <h2>My Documents</h2>
-        <AddDocument refreshDocuments={getAllDocuments} />
-
-        {documents.map((document) => {
-          <DocumentCard key={document._id} {...document} />;
-        })}
       </div>
       <Footer />
     </div>

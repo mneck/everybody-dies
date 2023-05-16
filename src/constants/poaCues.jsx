@@ -42,10 +42,10 @@ const poaCues = [
   },
   {
     cue: `And what is your attorney's relationship to you?`,
-    para: `Choose from one of these options:`,
-    inputType: "radio",
+    para: `Choose from one of these option:`,
+    inputType: "select",
     cueId: "attorneyRelationship",
-    options: [
+    option: [
       "Wife",
       "Husband",
       "Spouse",
@@ -75,9 +75,9 @@ const poaCues = [
   },
   {
     cue: `What kind of power of attorney would you like to make?`,
-    inputType: "radio",
+    inputType: "select",
     cueId: "documentType",
-    options: [
+    option: [
       "Enduring Power of Attorney",
       "Springing Power of Attorney",
     ],
@@ -91,9 +91,9 @@ const poaCues = [
   {
     cue: `Is your witness a lawyer or notary?`,
     para: `If the person witnessing you sign your power of attorney is a lawyer or notary public, then you will only require one person to witness your signature.`,
-    inputType: "radio",
+    inputType: "select",
     cueId: "witnessType",
-    options: ["Yes", "No"],
+    option: ["Yes", "No"],
     inputIsVisible: true,
   },
   {

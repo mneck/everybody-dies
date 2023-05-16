@@ -25,7 +25,7 @@ function AddDocument(props) {
 
   return (
     <div>
-      <h1>Add Document</h1>
+      <h2>Add Document</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
