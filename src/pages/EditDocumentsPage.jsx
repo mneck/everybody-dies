@@ -36,7 +36,7 @@ function EditDocumentsPage(props) {
       });
   };
 
-  const deleteProject = () => {
+  const deleteDocument = () => {
     axios
       .delete(`${API_URL}/api/documents/${documentId}`)
       .then(() => {
@@ -61,7 +61,7 @@ function EditDocumentsPage(props) {
         <button type="submit">Update Document</button>
       </form>
 
-      <button onClick={deleteProject}>
+      <button onClick={deleteDocument}>
         Delete Document
       </button>
     </div>

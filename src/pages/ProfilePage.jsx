@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Footer from "../components/Footer";
 import axios from "axios";
-import AddDocument from "../components/AddDocument";
+import DocumentListPage from "./DocumentListPage";
 
 const API_URL = import.meta.env.VITE_APP_SERVER_URL;
 
@@ -30,6 +30,7 @@ function ProfilePage() {
           </button>
         </Link>
         <h2>My Documents</h2>
+        <DocumentListPage />
       </div>
       <Footer />
     </div>

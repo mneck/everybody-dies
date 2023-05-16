@@ -1,14 +1,22 @@
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
 
 function Review(props) {
   const { id } = useParams();
+  const [document, setDocument] = useState(null);
 
-  return (
-    <div>
-      <h1>Review Document</h1>
-      <pre>{JSON.stringify(props.answers, null, 2)}</pre>
-    </div>
-  );
+  useEffect(() => {
+    axios.get(`/api/document/${id}`).then((response) => {
+      setDocument(response.data);
+    });
+  }, [id]);
+
+  if (!document) {
+    return <div>Loading...</div>;
+  }
+
+  // <pre>{JSON.stringify(props.answers, null, 2)}</pre>
   // create a route called Documents/:id ...
   // then use navigate to get id
   // then use findById
@@ -17,7 +25,18 @@ function Review(props) {
   // then return
   // create document with dynamic route with id + review
   // then pass id of document to backend and grab it from there
-  // add
+
+  return (
+    <div>
+      <h1>{document.title}</h1>
+      {document.answers.map((answer) => (
+        <div key={answer._id["$oid"]}>
+          <p>{answer.cueId}</p>
+          <p>{answer.answer}</p>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default Review;

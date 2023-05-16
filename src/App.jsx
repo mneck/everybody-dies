@@ -12,8 +12,8 @@ import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
 import CreatePage from "./pages/CreatePage";
 import Questionnaire from "./pages/Questionnaire";
-import EditDocumentsPage from "./pages/EditDocumentsPage";
 import Review from "./pages/Review";
+import DocumentListPage from "./pages/DocumentListPage";
 import NoPage from "./pages/NoPage";
 
 function App() {
@@ -29,13 +29,13 @@ function App() {
           path="/questionnaire"
           element={<Questionnaire />}
         />
-        <Route
-          path="/edit"
-          element={<EditDocumentsPage />}
-        />
-        <Route path="*" element={<NoPage />} />
 
+        <Route
+          path="/documents"
+          element={<DocumentListPage />}
+        />
         <Route path="/review/:id" element={<Review />} />
+        <Route path="*" element={<NoPage />} />
       </Routes>
     </>
   );
