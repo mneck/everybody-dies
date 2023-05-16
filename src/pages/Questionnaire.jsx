@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import poaCues from "../constants/poaCues";
+import AddDocument from "../components/AddDocument";
 import Footer from "../components/Footer";
 
 function Questionnaire() {
@@ -55,6 +56,7 @@ function Questionnaire() {
       ) : (
         <div>
           <h1>Thank you for your answers!</h1>
+
           <pre>{JSON.stringify(answers, null, 2)}</pre>
         </div>
       )}

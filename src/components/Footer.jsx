@@ -11,13 +11,13 @@ function Footer() {
       {isLoggedIn && (
         <div className="footer-items">
           <div>
-            <Link to="/">
-              <button>Home</button>
+            <Link to="/profile">
+              <button>Profile</button>
             </Link>
           </div>
           <div>
-            <Link to="/profile">
-              <button>Profile</button>
+            <Link to="/documents">
+              <button>My Documents</button>
             </Link>
           </div>
           <div>

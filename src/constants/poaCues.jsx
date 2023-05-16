@@ -2,7 +2,7 @@ const poaCues = [
   {
     cue: `Hello! 👋 To start, what is your full legal name?`,
     inputType: "text",
-    answerId: "clientName",
+    cueId: "clientName",
     inputIsVisible: true,
   },
   {
@@ -14,11 +14,11 @@ const poaCues = [
     cue: `What is the name of the address where you reside?`,
     para: `Include the street number and street name, city, and province.`,
     inputType: "text",
-    answerId: "clientAddress",
+    cueId: "clientAddress",
     inputIsVisible: true,
   },
   {
-    cue: "",
+    cue: `About any prior powers of attorney...`,
     para: `When you sign your power of attorney document, any previous power of attorney you've made will be cancelled.`,
     inputIsVisible: false,
   },
@@ -30,21 +30,21 @@ const poaCues = [
   {
     cue: `What is the full legal name of the person you want to assign as your attorney?`,
     inputType: "text",
-    answerId: "attorneyName",
+    cueId: "attorneyName",
     inputIsVisible: true,
   },
   {
     cue: `And what is the full address of your attorney?`,
     para: `Please include the street number, city, and province.`,
     inputType: "text",
-    answerId: "attorneyAddress",
+    cueId: "attorneyAddress",
     inputIsVisible: true,
   },
   {
     cue: `And what is your attorney's relationship to you?`,
     para: `Choose from one of these options:`,
-    inputType: "dropdown",
-    answerId: "attorneyRelationship",
+    inputType: "radio",
+    cueId: "attorneyRelationship",
     options: [
       "Wife",
       "Husband",
@@ -75,8 +75,8 @@ const poaCues = [
   },
   {
     cue: `What kind of power of attorney would you like to make?`,
-    inputType: "dropdown",
-    answerId: "documentType",
+    inputType: "radio",
+    cueId: "documentType",
     options: [
       "Enduring Power of Attorney",
       "Springing Power of Attorney",
@@ -91,33 +91,33 @@ const poaCues = [
   {
     cue: `Is your witness a lawyer or notary?`,
     para: `If the person witnessing you sign your power of attorney is a lawyer or notary public, then you will only require one person to witness your signature.`,
-    inputType: "dropdown",
-    answerId: "witnessType",
+    inputType: "radio",
+    cueId: "witnessType",
     options: ["Yes", "No"],
     inputIsVisible: true,
   },
   {
     cue: `What is the full legal name of the person witnessing you sign your document?`,
     inputType: "text",
-    answerId: "firstWitnessName",
+    cueId: "firstWitnessName",
     inputIsVisible: true,
   },
   {
     cue: `And what is the full address of the person witnessing you sign your document?`,
     inputType: "text",
-    answerId: "firstWitnessAddress",
+    cueId: "firstWitnessAddress",
     inputIsVisible: true,
   },
   {
     cue: `What is the full name of the second person witnessing you sign your document?`,
     inputType: "text",
-    answerId: "secondWitnessAddress",
+    cueId: "secondWitnessAddress",
     inputIsVisible: true,
   },
   {
     cue: `And what is the full address of the second person witnessing you sign your document?`,
     inputType: "text",
-    answerId: "secondWitnessAddress",
+    cueId: "secondWitnessAddress",
     inputIsVisible: true,
   },
   {

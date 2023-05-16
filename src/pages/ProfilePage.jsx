@@ -1,7 +1,24 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Footer from "../components/Footer";
+import axios from "axios";
+
+const API_URL = import.meta.env.VITE_APP_SERVER_URL;
 
 function ProfilePage() {
+  const [documents, setDocuments] = useState([]);
+
+  const getAllDocuments = () => {
+    axios
+      .get(`${API_URL}`)
+      .then((response) => setDocuments(response.data))
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    getAllDocuments();
+  }, []);
+
   return (
     <div>
       <div className="app-vh-container">
@@ -12,17 +29,11 @@ function ProfilePage() {
           </button>
         </Link>
         <h2>My Documents</h2>
-        <Link to="/doc1">
-          <button>
-            <p>Document 1</p>
-          </button>
-        </Link>
-        <div></div>
-        <Link to="/doc2">
-          <button>
-            <p>Document 2</p>
-          </button>
-        </Link>
+        <AddDocument refreshDocuments={getAllDocuments} />
+
+        {documents.map((document) => {
+          <DocumentCard key={document._id} {...document} />;
+        })}
       </div>
       <Footer />
     </div>
