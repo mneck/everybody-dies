@@ -28,7 +28,7 @@ function AddDocument(props) {
       .post(`${API_URL}/api/submitAnswers`, requestBody)
       .then(console.log(requestBody))
       .then((response) => {
-        navigate("/review");
+        navigate(`/documents/${response.data._id}`);
       })
       .catch((error) => console.log(error));
   };

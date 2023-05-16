@@ -11,8 +11,8 @@ function DocumentListPage() {
     axios
       .get(`${API_URL}/api/documents`)
       .then((response) => setDocuments(response.data))
-      .catch((error) => console.log(error))
-  }
+      .catch((error) => console.log(error));
+  };
 
   // This effect runs only once after the initial render
   // by setting the empty dependency array - []
@@ -20,25 +20,24 @@ function DocumentListPage() {
   useEffect(() => {
     getAllDocuments();
   }, []);
+  {
+    console.log(documents);
+  }
 
   return (
     <div>
-      <h1>My Documents</h1>
-      {
+      <h2>My Documents</h2>
       {documents.map((document) => {
         return (
           <div key={document._id}>
-            <h2>
+            <h3>
               <Link to={`/documents/${document._id}`}>
                 {document.title}
               </Link>
-            </h2>
-            <p>{document.answers}</p>
+            </h3>
           </div>
         );
       })}
-
-    }
     </div>
   );
 }

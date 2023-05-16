@@ -29,7 +29,6 @@ function ProfilePage() {
             <h2>Create a Document</h2>
           </button>
         </Link>
-        <h2>My Documents</h2>
         <DocumentListPage />
       </div>
       <Footer />

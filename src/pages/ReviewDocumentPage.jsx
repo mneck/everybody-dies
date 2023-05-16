@@ -4,23 +4,29 @@ import axios from "axios";
 
 const API_URL = import.meta.env.VITE_APP_SERVER_URL;
 
-function EditDocumentsPage(props) {
+function ReviewDocumentPage(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
   const { documentId } = useParams();
+  // useParams is not used correctly here
+  // should be ?documentId= [useParams()] http://localhost:5173/documents/64638c917f11e39d0072441c
+
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`${API_URL}/api/documents/${documentId}`)
-  //     .then((response) => {
-  //       const oneDocument = response.data;
-  //       setTitle(oneDocument.title);
-  //       setDescription(oneDocument.description);
-  //     })
-  //     .catch((error) => console.log(error));
-  // }, [documentId]);
+  const getDocument = (documentId) => {
+    console.log("Single Document", documentId, API_URL);
+    axios
+      .get(`${API_URL}/api/documents/${documentId}`)
+      .then((response) =>
+        console.log("Single Document2", response)
+      )
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    getDocument(documentId);
+  }, []);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -35,8 +41,9 @@ function EditDocumentsPage(props) {
         navigate(`/documents/${documentId}`);
       });
   };
-
   const deleteDocument = () => {
+    console.log("Deleting", documentId);
+
     axios
       .delete(`${API_URL}/api/documents/${documentId}`)
       .then(() => {
@@ -68,4 +75,4 @@ function EditDocumentsPage(props) {
   );
 }
 
-export default EditDocumentsPage;
+export default ReviewDocumentPage;

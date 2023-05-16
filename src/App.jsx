@@ -1,10 +1,5 @@
 import "./App.css";
-import {
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
-import { BrowserRouter as Router } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
@@ -12,7 +7,7 @@ import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
 import CreatePage from "./pages/CreatePage";
 import Questionnaire from "./pages/Questionnaire";
-import Review from "./pages/Review";
+import ReviewDocumentPage from "./pages/ReviewDocumentPage";
 import DocumentListPage from "./pages/DocumentListPage";
 import NoPage from "./pages/NoPage";
 
@@ -34,7 +29,10 @@ function App() {
           path="/documents"
           element={<DocumentListPage />}
         />
-        <Route path="/review/:id" element={<Review />} />
+        <Route
+          path="/documents/:documentId"
+          element={<ReviewDocumentPage />}
+        />
         <Route path="*" element={<NoPage />} />
       </Routes>
     </>
