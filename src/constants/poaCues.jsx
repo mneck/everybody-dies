@@ -1,8 +1,10 @@
+import CueIds from "./CueIds";
+
 const poaCues = [
   {
     cue: `Hello! 👋 To start, what is your full legal name?`,
     inputType: "text",
-    cueId: "Your Name:",
+    cueId: CueIds.YourName,
     inputIsVisible: true,
   },
   {
@@ -14,7 +16,7 @@ const poaCues = [
     cue: `What is the name of the address where you reside?`,
     para: `Include the street number and street name, city, and province, e.g. 123 Example Street, Vancouver, British Columbia`,
     inputType: "text",
-    cueId: "Your Address:",
+    cueId: CueIds.YourAddress,
     inputIsVisible: true,
   },
   {
@@ -44,7 +46,7 @@ const poaCues = [
   //   cue: `And what is your attorney's relationship to you?`,
   //   para: `Choose from one of these option:`,
   //   inputType: "select",
-  //   cueId: "Your Attorney is Your:",
+  //   cueId: CueIds."Your Attorney is Your:",
   //   option: [
   //     "Wife",
   //     "Husband",
@@ -76,7 +78,7 @@ const poaCues = [
   // {
   //   cue: `What kind of power of attorney would you like to make?`,
   //   inputType: "select",
-  //   cueId: "Your Type of Attorney:",
+  //   cueId: CueIds."Your Type of Attorney:",
   //   option: [
   //     "Enduring Power of Attorney",
   //     "Springing Power of Attorney",
@@ -92,32 +94,32 @@ const poaCues = [
   //   cue: `Is your witness a lawyer or notary?`,
   //   para: `If the person witnessing you sign your power of attorney is a lawyer or notary public, then you will only require one person to witness your signature.`,
   //   inputType: "select",
-  //   cueId: "Your witness is a lawyer or notary:",
+  //   cueId: CueIds."Your witness is a lawyer or notary:",
   //   option: ["Yes", "No"],
   //   inputIsVisible: true,
   // },
   // {
   //   cue: `What is the full legal name of the person witnessing you sign your document?`,
   //   inputType: "text",
-  //   cueId: `Your first witness's name:`,
+  //   cueId: CueIds.`Your first witness's name:`,
   //   inputIsVisible: true,
   // },
   // {
   //   cue: `And what is the full address of the person witnessing you sign your document?`,
   //   inputType: "text",
-  //   cueId: `Your first witness's address:`,
+  //   cueId: CueIds.`Your first witness's address:`,
   //   inputIsVisible: true,
   // },
   // {
   //   cue: `What is the full name of the second person witnessing you sign your document?`,
   //   inputType: "text",
-  //   cueId: `Your second witness's name:`,
+  //   cueId: CueIds.`Your second witness's name:`,
   //   inputIsVisible: true,
   // },
   // {
   //   cue: `And what is the full address of the second person witnessing you sign your document?`,
   //   inputType: "text",
-  //   cueId: `Your second witness's address:`,
+  //   cueId: CueIds.`Your second witness's address:`,
   //   inputIsVisible: true,
   // },
   {

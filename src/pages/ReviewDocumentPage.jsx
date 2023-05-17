@@ -3,14 +3,19 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import poaCues from "../constants/poaCues";
 import willCues from "../constants/willCues";
+import CueIds from "../constants/CueIds";
 import Footer from "../components/Footer";
+import PoaForm from "../components/PoaForm";
 
 const API_URL = import.meta.env.VITE_APP_SERVER_URL;
 
 function ReviewDocumentPage(props) {
-  const [title, setTitle] = useState("Change title to...");
   const [answers, setAnswers] = useState([]);
+  const [title, setTitle] = useState("");
   const [documentData, setDocumentData] = useState(null);
+
+  const getAnswerByCueId = (arr, cueId) =>
+    arr.find((el) => el.cueId === cueId)?.answer;
 
   const { documentId } = useParams();
 
@@ -20,6 +25,7 @@ function ReviewDocumentPage(props) {
     axios
       .get(`${API_URL}/api/documents/${documentId}`)
       .then((response) => setDocumentData(response.data))
+      .then(console.log("data"))
       .catch((error) => console.log(error));
   };
 
@@ -28,9 +34,12 @@ function ReviewDocumentPage(props) {
   }, []);
 
   useEffect(() => {
+    console.log("Document data before:", documentData);
     if (documentData) {
       // Set initial answer values based on document data
+      console.log("Setting answers:");
       setAnswers([...documentData.answers]);
+      setTitle(documentData.title);
     }
   }, [documentData]);
 
@@ -46,7 +55,7 @@ function ReviewDocumentPage(props) {
     setAnswers(newAnswers);
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormUpdate = (e) => {
     e.preventDefault();
     const requestBody = { title, answers };
     axios
@@ -55,7 +64,8 @@ function ReviewDocumentPage(props) {
         requestBody
       )
       .then((response) => {
-        navigate(`/documents/${documentId}`);
+        setDocumentData(response.data);
+        navigate(`/documents/`); // TODO: change to documents/documentId
       });
   };
 
@@ -79,10 +89,13 @@ function ReviewDocumentPage(props) {
   // documentData.DocumentType === "poa"
   //   ? (cues = poaCues)
   //   : (cues = willCues);
-
+  // Use ?.
   //  const cueTexts = cues.reduce((acc, curr) => {
   //   acc[curr.cueId] = curr.cueText;
   //   return acc;
+
+  // TODO => Make a component for each type of document
+
   // }, {});
 
   return (
@@ -99,26 +112,35 @@ function ReviewDocumentPage(props) {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
-            {answers.map((answer, index) => (
-              <div key={index}>
-                <p>{answer.cueId}</p>
-                <input
-                  type="text"
-                  name={answer.cueId}
-                  value={answer.answer}
-                  onChange={(e) =>
-                    handleAnswerChange(
-                      index,
-                      e.target.value
-                    )
-                  }
-                />
-              </div>
-            ))}
-            <form onSubmit={handleFormSubmit}>
+            {console.log(
+              "Displaying Answers",
+              answers[0]?.answer
+            )}
+            {answers.map(
+              (
+                answer,
+                index // TODO: rename answer here
+              ) => (
+                <div key={index}>
+                  <p>{answer.cueId}</p>
+                  <input
+                    type="text"
+                    name={answer.cueId}
+                    value={answer.answer}
+                    onChange={(e) =>
+                      handleAnswerChange(
+                        index,
+                        e.target.value
+                      )
+                    }
+                  />
+                </div>
+              )
+            )}
+            <form onSubmit={handleFormUpdate}>
               <div>
                 <button type="submit">
-                  Update Document
+                  Update document with new info
                 </button>
               </div>
             </form>
@@ -127,63 +149,7 @@ function ReviewDocumentPage(props) {
               Copy text to clipboard
             </button>
 
-            <div id="content" className="review-field">
-              <h3>
-                <pre>Power of Attorney</pre>
-              </h3>
-              <p>
-                <pre>
-                  This GENERAL POWER OF ATTORNEY is given on{" "}
-                  {new Date().toLocaleDateString("en-US", {
-                    month: "long",
-                    day: "numeric",
-                    year: "numeric",
-                  })}{" "}
-                  by ##Name of ##Address.
-                </pre>
-              </p>
-
-              <p>
-                <pre>I appoint the following person:</pre>
-              </p>
-
-              <p>
-                <pre>
-                  {"     "}##Name of Attorney, of ##Address,
-                  Vancouver
-                </pre>
-              </p>
-
-              <p>
-                <pre>
-                  to be my attorney in accordance with the{" "}
-                  <i>Power of Attorney Act</i> and to do on
-                  my behalf anything that I can lawfully do
-                  by an attorney.
-                </pre>
-              </p>
-
-              <p>
-                <pre>
-                  Power of Attorney may be exercised during
-                  any subsequent mental infirmity on my
-                  part.
-                </pre>
-              </p>
-
-              <p>
-                <pre>
-                  I revoke all other powers of attorney
-                  previously granted by me.
-                </pre>
-              </p>
-
-              <p>
-                <pre>
-                  <b>Executions(s)</b>
-                </pre>
-              </p>
-            </div>
+            <PoaForm props={answers} />
 
             <button onClick={deleteDocument}>
               Delete Document
