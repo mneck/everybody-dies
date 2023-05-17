@@ -12,7 +12,8 @@ const API_URL = import.meta.env.VITE_APP_SERVER_URL;
 function ReviewDocumentPage(props) {
   const [answers, setAnswers] = useState([]);
   const [title, setTitle] = useState("");
-  const [documentData, setDocumentData] = useState(null);
+  const [documentType, setDocumentType] = useState("");
+  // const [documentData, setDocumentData] = useState([]);
 
   const getAnswerByCueId = (arr, cueId) =>
     arr.find((el) => el.cueId === cueId)?.answer;
@@ -30,23 +31,21 @@ function ReviewDocumentPage(props) {
   };
 
   useEffect(() => {
-    getDocument(documentId);
+    const fetchData = async (documentId) => {
+      try {
+        const response = await axios.get(
+          `${API_URL}/api/documents/${documentId}`
+        );
+        setAnswers(response.data.answers);
+        setTitle(response.data.title);
+        setDocumentType(response.data.documentType);
+      } catch (error) {
+        console.error("Error from backend", error);
+      }
+    };
+
+    fetchData(documentId);
   }, []);
-
-  useEffect(() => {
-    console.log("Document data before:", documentData);
-    if (documentData) {
-      // Set initial answer values based on document data
-      console.log("Setting answers:");
-      setAnswers([...documentData.answers]);
-      setTitle(documentData.title);
-    }
-  }, [documentData]);
-
-  // let cues;
-  // documentData.documentType === "poa"
-  //   ? (cues = poaCues)
-  //   : (cues = willCues);
 
   const handleAnswerChange = (index, value) => {
     // Create new answers array with updated value at specified index
@@ -64,7 +63,9 @@ function ReviewDocumentPage(props) {
         requestBody
       )
       .then((response) => {
-        setDocumentData(response.data);
+        setAnswers(response.data.answers);
+        setTitle(response.data.title);
+        setDocumentType(response.data.documentType);
         navigate(`/documents/`); // TODO: change to documents/documentId
       });
   };
@@ -236,9 +237,9 @@ function ReviewDocumentPage(props) {
     <div>
       <div className="EditDocumentPage app-vh-container">
         <h3>Edit my document</h3>
-        {documentData ? (
+        {title ? (
           <>
-            <h4>{documentData.title}</h4>
+            <h4>{title}</h4>
             <label>Title: </label>
             <input
               type="text"
@@ -246,10 +247,6 @@ function ReviewDocumentPage(props) {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
-            {console.log(
-              "Displaying Answers",
-              answers[0]?.answer
-            )}
             {answers.map(
               (
                 answer,
@@ -283,7 +280,7 @@ function ReviewDocumentPage(props) {
               Copy text to clipboard
             </button>
 
-            {documentData.documentType === "poa"
+            {documentType === "poa"
               ? returnPoa()
               : returnWill()}
 
