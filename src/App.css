@@ -101,7 +101,13 @@
   background-color: white;
   border-style: solid;
   border: 2px solid black;
-  padding-left: -50px;
-  padding-right: -50px;
   padding-bottom: 100px;
+}
+
+.review-field h3 {
+  text-align: center;
+}
+
+.review-field p {
+  text-align: left;
 }

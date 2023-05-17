@@ -12,34 +12,34 @@ const poaCues = [
   },
   {
     cue: `What is the name of the address where you reside?`,
-    para: `Include the street number and street name, city, and province.`,
+    para: `Include the street number and street name, city, and province, e.g. 123 Example Street, Vancouver, British Columbia`,
     inputType: "text",
     cueId: "Your Address:",
     inputIsVisible: true,
   },
-  // {
-  //   cue: `About any prior powers of attorney...`,
-  //   para: `When you sign your power of attorney document, any previous power of attorney you've made will be cancelled.`,
-  //   inputIsVisible: false,
-  // },
-  // {
-  //   cue: `One more note.`,
-  //   para: `Don't worry if you make a typo or change your mind about something! After responding to these questions, you'll have a chance to review your answers and fix any typos or mistakes before we create your form for you.`,
-  //   inputIsVisible: false,
-  // },
-  // {
-  //   cue: `What is the full legal name of the person you want to assign as your attorney?`,
-  //   inputType: "text",
-  //   cueId: "Attorney Name:",
-  //   inputIsVisible: true,
-  // },
-  // {
-  //   cue: `And what is the full address of your attorney?`,
-  //   para: `Please include the street number, city, and province.`,
-  //   inputType: "text",
-  //   cueId: "Attorney Address:",
-  //   inputIsVisible: true,
-  // },
+  {
+    cue: `About any prior powers of attorney...`,
+    para: `When you sign your power of attorney document, any previous power of attorney you've made will be cancelled.`,
+    inputIsVisible: false,
+  },
+  {
+    cue: `One more note.`,
+    para: `Don't worry if you make a typo or change your mind about something! After responding to these questions, you'll have a chance to review your answers and fix any typos or mistakes before we create your form for you.`,
+    inputIsVisible: false,
+  },
+  {
+    cue: `What is the full legal name of the person you want to assign as your attorney?`,
+    inputType: "text",
+    cueId: "Attorney Name:",
+    inputIsVisible: true,
+  },
+  {
+    cue: `And what is the full address of your attorney?`,
+    para: `Please include the street number, city, and province, e.g. 123 Example Street, Vancouver, British Columbia`,
+    inputType: "text",
+    cueId: "Attorney Address:",
+    inputIsVisible: true,
+  },
   // {
   //   cue: `And what is your attorney's relationship to you?`,
   //   para: `Choose from one of these option:`,

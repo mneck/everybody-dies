@@ -123,20 +123,67 @@ function ReviewDocumentPage(props) {
               </div>
             </form>
 
+            <button onClick={handleCopy}>
+              Copy text to clipboard
+            </button>
+
             <div id="content" className="review-field">
-              <h3>Power of Attorney</h3>
+              <h3>
+                <pre>Power of Attorney</pre>
+              </h3>
               <p>
-                This GENERAL POWER OF ATTORNEY is given on{" "}
-                {new Date().toLocaleDateString("en-US", {
-                  month: "long",
-                  day: "numeric",
-                  year: "numeric",
-                })}{" "}
-                by ##Name of ##Address.
+                <pre>
+                  This GENERAL POWER OF ATTORNEY is given on{" "}
+                  {new Date().toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                  })}{" "}
+                  by ##Name of ##Address.
+                </pre>
               </p>
-              I appoint the following person:
+
+              <p>
+                <pre>I appoint the following person:</pre>
+              </p>
+
+              <p>
+                <pre>
+                  {"     "}##Name of Attorney, of ##Address,
+                  Vancouver
+                </pre>
+              </p>
+
+              <p>
+                <pre>
+                  to be my attorney in accordance with the{" "}
+                  <i>Power of Attorney Act</i> and to do on
+                  my behalf anything that I can lawfully do
+                  by an attorney.
+                </pre>
+              </p>
+
+              <p>
+                <pre>
+                  Power of Attorney may be exercised during
+                  any subsequent mental infirmity on my
+                  part.
+                </pre>
+              </p>
+
+              <p>
+                <pre>
+                  I revoke all other powers of attorney
+                  previously granted by me.
+                </pre>
+              </p>
+
+              <p>
+                <pre>
+                  <b>Executions(s)</b>
+                </pre>
+              </p>
             </div>
-            <button onClick={handleCopy}>Copy Text</button>
 
             <button onClick={deleteDocument}>
               Delete Document
