@@ -40,9 +40,9 @@ function CreatePage() {
         </Link>
 
         <button>
-          <h2 onClick={handleModalClick}>
+          <h3 onClick={handleModalClick}>
             What are these things?
-          </h2>
+          </h3>
         </button>
         {showModal && (
           <Modal handleCloseModal={handleCloseModal}>

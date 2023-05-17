@@ -18,11 +18,16 @@ function Questionnaire() {
   let cues;
   type === "poa" ? (cues = poaCues) : (cues = willCues);
 
-  const [answers, setAnswers] = useState({});
+  const [answers, setAnswers] = useState([]);
+  // const [cueIds, setCueIds] = useState({});
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const questions = cues.map((e) => {
     return e.cue;
+  });
+
+  const cueIds = cues.map((e) => {
+    return e.cueId;
   });
 
   const paras = cues.map((e) => {
@@ -37,52 +42,60 @@ function Questionnaire() {
     return e.inputType;
   });
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const data = new FormData(form);
-    const cueId = cues[currentQuestion].cueId;
-    const formData = Object.fromEntries(data.entries());
-    formData[cueId] = formData[currentQuestion.toString()];
-    delete formData[currentQuestion.toString()];
-    const newAnswers = { ...answers, ...formData };
-    setAnswers(newAnswers);
-    setCurrentQuestion(currentQuestion + 1);
+    const currentCueId = cueIds[currentQuestion];
+    const currentInput = e.target.querySelector(
+      `[name="${currentQuestion}"]`
+    );
+
+    const currentAnswer = currentInput
+      ? currentInput.value
+      : "";
+
+    if (currentAnswer.length > 0) {
+      setAnswers([
+        ...answers,
+        {
+          cueId: currentCueId.toString(),
+          answer: currentAnswer.toString(),
+        },
+      ]);
+    }
     e.target.reset();
+    setCurrentQuestion(currentQuestion + 1);
   };
+
+  // let answersArr = [answers];
 
   return (
     <div>
-      {currentQuestion < questions.length ? (
-        <form onSubmit={handleSubmit}>
-          <h1>{questions[currentQuestion]}</h1>
-          <p>{paras[currentQuestion]}</p>
-
-          {visibility[currentQuestion] ? (
-            <input
-              type={inputType[currentQuestion]}
-              name={currentQuestion}
-            />
-          ) : (
-            <span></span>
-          )}
-          <div>
-            <span>
+      <div className="app-vh-container">
+        {currentQuestion < questions.length ? (
+          <form onSubmit={handleSubmit}>
+            <h1>{questions[currentQuestion]}</h1>
+            <p>{paras[currentQuestion]}</p>
+            {visibility[currentQuestion] ? (
+              <input
+                type={inputType[currentQuestion]}
+                name={currentQuestion}
+              />
+            ) : (
+              <span></span>
+            )}
+            <div>
               <button type="submit">Next</button>
-            </span>
-          </div>
-        </form>
-      ) : (
-        <div>
-          <h1>Thank you for your answers!</h1>
-          <p>
-            Give your document a title and click submit.
-          </p>
+            </div>
+          </form>
+        ) : (
+          <div>
+            <h1>Thank you for your answers!</h1>
+            <pre>{JSON.stringify(answers, null, 2)}</pre>
 
-          <pre>{JSON.stringify(answers, null, 2)}</pre>
-          <AddDocument answers={answers} />
-        </div>
-      )}
+            <AddDocument answers={answers} />
+          </div>
+        )}
+      </div>
       <Footer />
     </div>
   );

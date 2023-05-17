@@ -5,18 +5,18 @@ const poaCues = [
     cueId: "clientName",
     inputIsVisible: true,
   },
-  // {
-  //   cue: `Great!`,
-  //   para: `We just need you to answer a few questions to draft a power of attorney document for you. A power of attorney gives someone (your attorney) the ability to manage your legal and financial affairs.`,
-  //   inputIsVisible: false,
-  // },
-  // {
-  //   cue: `What is the name of the address where you reside?`,
-  //   para: `Include the street number and street name, city, and province.`,
-  //   inputType: "text",
-  //   cueId: "clientAddress",
-  //   inputIsVisible: true,
-  // },
+  {
+    cue: `Great!`,
+    para: `We just need you to answer a few questions to draft a power of attorney document for you. A power of attorney gives someone (your attorney) the ability to manage your legal and financial affairs.`,
+    inputIsVisible: false,
+  },
+  {
+    cue: `What is the name of the address where you reside?`,
+    para: `Include the street number and street name, city, and province.`,
+    inputType: "text",
+    cueId: "clientAddress",
+    inputIsVisible: true,
+  },
   // {
   //   cue: `About any prior powers of attorney...`,
   //   para: `When you sign your power of attorney document, any previous power of attorney you've made will be cancelled.`,

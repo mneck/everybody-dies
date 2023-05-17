@@ -5,17 +5,22 @@ import { AuthContext } from "../context/Auth-Context";
 
 const API_URL = import.meta.env.VITE_APP_SERVER_URL;
 
-function AddDocument(props) {
+function AddDocument({ answers }) {
   const [title, setTitle] = useState("Title goes here");
   const { user } = useContext(AuthContext);
-  const [answers, setAnswers] = useState(props.answers);
   const [documentType, setdocumentType] = useState("poa");
-  console.log(user);
+  console.log("Add Document answers:", answers);
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(
+      "AddDocument Check",
+      title,
+      answers,
+      documentType
+    );
 
     const requestBody = {
       title,
@@ -23,6 +28,8 @@ function AddDocument(props) {
       answers,
       documentType,
     };
+
+    console.log("Request body:", requestBody);
 
     axios
       .post(`${API_URL}/api/submitAnswers`, requestBody)
