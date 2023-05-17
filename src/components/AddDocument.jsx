@@ -9,18 +9,11 @@ function AddDocument({ answers }) {
   const [title, setTitle] = useState("Title goes here");
   const { user } = useContext(AuthContext);
   const [documentType, setdocumentType] = useState("poa");
-  console.log("Add Document answers:", answers);
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(
-      "AddDocument Check",
-      title,
-      answers,
-      documentType
-    );
 
     const requestBody = {
       title,

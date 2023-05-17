@@ -90,7 +90,10 @@ function Questionnaire() {
         ) : (
           <div>
             <h1>Thank you for your answers!</h1>
-            <pre>{JSON.stringify(answers, null, 2)}</pre>
+            <p>
+              Click Submit to review your answers and your
+              document.
+            </p>
 
             <AddDocument answers={answers} />
           </div>

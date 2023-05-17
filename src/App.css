@@ -94,3 +94,14 @@
   bottom: 100px;
   position: fixed;
 }
+
+/* Review doc page */
+
+.review-field {
+  background-color: white;
+  border-style: solid;
+  border: 2px solid black;
+  padding-left: -50px;
+  padding-right: -50px;
+  padding-bottom: 100px;
+}
