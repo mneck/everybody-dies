@@ -7,6 +7,13 @@ import AddDocument from "../components/AddDocument";
 import Footer from "../components/Footer";
 
 function Questionnaire() {
+  const { user } = useContext(AuthContext);
+  // console.log(
+  //   "AuthContext check",
+  //   "User is",
+  //   user,
+  //   useContext(AuthContext)
+  // );
   const location = useLocation();
   const type = new URLSearchParams(location.search).get(
     "type"

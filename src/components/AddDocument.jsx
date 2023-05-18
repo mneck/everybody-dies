@@ -4,10 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/Auth-Context";
 
 const API_URL = import.meta.env.VITE_APP_SERVER_URL;
-const { user } = useContext(AuthContext);
 
 function AddDocument({ answers, type }) {
-  console.log(type);
+  // console.log("Type check:", type);
+  const { user } = useContext(AuthContext);
+  console.log("AuthContext check", user);
   const [title, setTitle] = useState("Title goes here");
   // const [documentType, setdocumentType] = useState("poa");
 
@@ -25,6 +26,7 @@ function AddDocument({ answers, type }) {
 
     console.log("Request body:", requestBody);
 
+    // user._id &&
     axios
       .post(`${API_URL}/api/submitAnswers`, requestBody)
       .then(console.log(requestBody))
