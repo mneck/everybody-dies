@@ -32,14 +32,14 @@ const poaCues = [
   {
     cue: `What is the full legal name of the person you want to assign as your attorney?`,
     inputType: "text",
-    cueId: "Attorney Name:",
+    cueId: CueIds.AttorneyName,
     inputIsVisible: true,
   },
   {
     cue: `And what is the full address of your attorney?`,
     para: `Please include the street number, city, and province, e.g. 123 Example Street, Vancouver, British Columbia`,
     inputType: "text",
-    cueId: "Attorney Address:",
+    cueId: CueIds.AttorneyAddress,
     inputIsVisible: true,
   },
   // {
