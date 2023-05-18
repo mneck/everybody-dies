@@ -1,6 +1,3 @@
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext } from "../context/Auth-Context";
 import CueIds from "../constants/CueIds";
 
 function WillForm({ answers }) {
@@ -98,9 +95,11 @@ function WillForm({ answers }) {
         <pre>
           4. I give my Trustee all my property of every kind
           and wherever located to administer as I direct in
-          this Will. In administering my estate, my Trustee
-          may convert or retain my estate as set out in this
-          Will.
+          this Will.
+        </pre>
+        <pre>
+          In administering my estate, my Trustee may convert
+          or retain my estate as set out in this Will.
         </pre>
       </p>
 

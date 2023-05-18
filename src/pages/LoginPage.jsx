@@ -26,8 +26,7 @@ function LoginPage(props) {
       .then((response) => {
         // Request to the server's endpoint `/auth/login` returns a response
         // with the JWT string ->  response.data.authToken
-        console.log("JWT token", response.data.authToken);
-
+        console.log("response data", response.data);
         storeToken(response.data.authToken);
 
         navigate("/profile");

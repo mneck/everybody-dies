@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Footer from "../components/Footer";
 import axios from "axios";
 import DocumentListPage from "./DocumentListPage";
@@ -7,18 +7,18 @@ import DocumentListPage from "./DocumentListPage";
 const API_URL = import.meta.env.VITE_APP_SERVER_URL;
 
 function ProfilePage() {
-  const [documents, setDocuments] = useState([]);
+  // const [documents, setDocuments] = useState([]);
 
-  const getAllDocuments = () => {
-    axios
-      .get(`${API_URL}`)
-      .then((response) => setDocuments(response.data))
-      .catch((error) => console.log(error));
-  };
+  // const getAllDocuments = () => {
+  //   axios
+  //     .get(`${API_URL}`)
+  //     .then((response) => setDocuments(response.data))
+  //     .catch((error) => console.log(error));
+  // };
 
-  useEffect(() => {
-    getAllDocuments();
-  }, []);
+  // useEffect(() => {
+  //   getAllDocuments();
+  // }, []);
 
   return (
     <div>

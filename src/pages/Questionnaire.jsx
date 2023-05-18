@@ -7,15 +7,6 @@ import AddDocument from "../components/AddDocument";
 import Footer from "../components/Footer";
 
 function Questionnaire() {
-  const { isLoggedIn } = useContext(AuthContext);
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!isLoggedIn) {
-      // Redirect the user to the homepage if not LoggedIn
-      navigate("/");
-    }
-  }, [isLoggedIn]);
-
   const location = useLocation();
   const type = new URLSearchParams(location.search).get(
     "type"

@@ -7,21 +7,29 @@ import Footer from "../components/Footer";
 const API_URL = import.meta.env.VITE_APP_SERVER_URL;
 
 function DocumentListPage() {
-  const { isLoggedIn } = useContext(AuthContext);
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!isLoggedIn) {
-      // Redirect the user to the homepage if not LoggedIn
-      navigate("/");
-    }
-  }, [isLoggedIn]);
-
   const [documents, setDocuments] = useState([]);
 
+  // const { user } = useContext(AuthContext);
+  // console.log("User", user);
+
+  // const getAllDocuments = () => {
+  //   axios
+  //     .get(`${API_URL}/api/doc/${user?._id}`)
+  //     .then((response) => setDocuments(response.data))
+  //     .catch((error) => console.log(error));
+  // };
+
   const getAllDocuments = () => {
+    const storedToken = localStorage.getItem("authToken");
+
     axios
-      .get(`${API_URL}/api/documents`)
-      .then((response) => setDocuments(response.data))
+      .get(`${API_URL}/api/doc`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => {
+        console.log("Data here", response.data),
+          setDocuments(response.data);
+      })
       .catch((error) => console.log(error));
   };
 
@@ -29,6 +37,7 @@ function DocumentListPage() {
   // by setting the empty dependency array - []
 
   useEffect(() => {
+    console.log("useEffect is called");
     getAllDocuments();
   }, []);
   {

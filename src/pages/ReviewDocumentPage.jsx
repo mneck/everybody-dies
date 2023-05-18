@@ -6,6 +6,7 @@ import willCues from "../constants/willCues";
 import CueIds from "../constants/CueIds";
 import Footer from "../components/Footer";
 import PoaForm from "../components/PoaForm";
+import WillForm from "../components/WillForm";
 
 const API_URL = import.meta.env.VITE_APP_SERVER_URL;
 
@@ -90,7 +91,7 @@ function ReviewDocumentPage(props) {
     return documentType === "poa" ? (
       <PoaForm answers={answers} />
     ) : (
-      <Footer />
+      <WillForm answers={answers} />
     );
   };
 
