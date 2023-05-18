@@ -2,36 +2,18 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/Auth-Context";
 import CueIds from "../constants/CueIds";
-import getAnswerByCueId from "../pages/ReviewDocumentPage";
+// import getAnswerByCueId from "../pages/ReviewDocumentPage"; // TODO ask the bosses!
 
 function PoaForm({ answers }) {
-  console.log(
-    "Unique Answers!!! For our POA component :D Woo!!! :",
-    answers
-  );
+  console.log(answers);
+  const getAnswerByCueId = (arr, cueId) =>
+    arr.find((el) => el.cueId === cueId)?.answer;
 
   return (
     <div id="content" className="review-field">
       <h3>
         <pre>Power of Attorney</pre>
       </h3>
-      <pre>
-        <p>
-          This GENERAL POWER OF ATTORNEY is given on{" "}
-          {new Date().toLocaleDateString("en-US", {
-            month: "long",
-            day: "numeric",
-            year: "numeric",
-          })}{" "}
-          by{" "}
-          {/*
-        function getAnswerByCueId(arr, cueId) {arr.find()}
-      
-      */}
-          {getAnswerByCueId(answers, CueIds.YourName)}: of{" "}
-          {getAnswerByCueId(answers, CueIds.YourAddress)}.
-        </p>
-      </pre>
 
       <pre>
         <p>I appoint the following person:</p>
@@ -41,6 +23,19 @@ function PoaForm({ answers }) {
         <p>
           {"      "}
           ##Name of Attorney, of ##Address, Vancouver
+        </p>
+      </pre>
+      <pre>
+        <p>
+          This GENERAL POWER OF ATTORNEY is given on{" "}
+          {new Date().toLocaleDateString("en-US", {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          })}{" "}
+          by {getAnswerByCueId(answers, CueIds.YourName)}:
+          of {getAnswerByCueId(answers, CueIds.YourAddress)}
+          .
         </p>
       </pre>
 
