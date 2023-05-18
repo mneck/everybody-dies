@@ -4,11 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/Auth-Context";
 
 const API_URL = import.meta.env.VITE_APP_SERVER_URL;
+const { user } = useContext(AuthContext);
 
 function AddDocument({ answers, type }) {
   console.log(type);
   const [title, setTitle] = useState("Title goes here");
-  const { user } = useContext(AuthContext);
   // const [documentType, setdocumentType] = useState("poa");
 
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ function AddDocument({ answers, type }) {
 
     const requestBody = {
       title,
-      owner: user._id,
+      owner: user?._id,
       answers,
       documentType: type,
     };
