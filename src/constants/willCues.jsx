@@ -14,19 +14,19 @@ const willCues = [
   },
   {
     cue: `What is the name of the city or town where you reside?`,
-    para: `Simply include the name and province, e.g. "Gibsons, British Columbia.`,
+    para: `Simply include the name and province, e.g. "Gibsons, British Columbia."`,
     inputType: "text",
     cueId: CueIds.YourCity,
     inputIsVisible: true,
   },
-  {
-    cue: "",
-    para: `When you sign your will, any previous will you've made will be cancelled.`,
-    inputIsVisible: false,
-  },
+  // {
+  //   cue: "",
+  //   para: `When you sign your will, any previous will you've made will be cancelled.`,
+  //   inputIsVisible: false,
+  // },
   {
     cue: "What is the full name of your executor?",
-    para: `You'll need to appoint an executor for your will. This person will distribute your stuff to your heirs. You should appoint someone who is unlikely to die before you (so healthy, around your age or younger). Ideally this person has some experience dealing with business or legal affairs.`,
+    para: `You'll need to appoint an executor for your will. This person will distribute your stuff to your heirs. You should appoint someone who is unlikely to die before you (so someone healthy, around your age or younger). Ideally this person has some experience dealing with business or legal affairs.`,
     inputType: "text",
     cueId: CueIds.ExecutorName,
     inputIsVisible: true,
@@ -109,7 +109,7 @@ const willCues = [
     inputIsVisible: true,
   },
   {
-    cue: "After I die, I want my corpse to be:",
+    cue: "After I die, I want my body to be:",
     para: `You can type here "cremated" or "buried" depending on your preference.`,
     inputType: "text",
     cueId: CueIds.DispositionOfRemains,

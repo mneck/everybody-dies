@@ -18,7 +18,13 @@ function PoaForm({ answers }) {
       <pre>
         <p>
           {"      "}
-          ##Name of Attorney, of ##Address, Vancouver
+          {getAnswerByCueId(answers, CueIds.AttorneyName)},
+          of{" "}
+          {getAnswerByCueId(
+            answers,
+            CueIds.AttorneyAddress
+          )}
+          , Vancouver
         </p>
       </pre>
       <pre>

@@ -45,7 +45,7 @@ function WillForm({ answers }) {
           {getAnswerByCueId(
             answers,
             CueIds.ExecutorRelation
-          )}
+          ).toLowerCase()}
           ,{" "}
           {getAnswerByCueId(
             answers,
@@ -70,7 +70,7 @@ function WillForm({ answers }) {
           {getAnswerByCueId(
             answers,
             CueIds.AltExecutorRelation
-          )}
+          ).toLowerCase()}
           ,{" "}
           {getAnswerByCueId(
             answers,
@@ -152,7 +152,11 @@ function WillForm({ answers }) {
         <pre>
           (b) to give the residue of my estate (the
           "Residue") to my{" "}
-          {getAnswerByCueId(answers, CueIds.HeirRelation)},{" "}
+          {getAnswerByCueId(
+            answers,
+            CueIds.HeirRelation
+          ).toLowerCase()}
+          ,{" "}
           {getAnswerByCueId(
             answers,
             CueIds.HeirName
@@ -175,7 +179,7 @@ function WillForm({ answers }) {
           {getAnswerByCueId(
             answers,
             CueIds.AltHeirRelation
-          )}
+          ).toLowerCase()}
           ,{" "}
           {getAnswerByCueId(
             answers,

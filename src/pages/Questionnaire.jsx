@@ -12,6 +12,8 @@ function Questionnaire() {
     "type"
   );
 
+  console.log(type);
+
   let cues;
   type === "poa" ? (cues = poaCues) : (cues = willCues);
 
@@ -88,11 +90,11 @@ function Questionnaire() {
           <div>
             <h1>Thank you for your answers!</h1>
             <p>
-              Click Submit to review your answers and your
-              document.
+              Feel free to give your document a title. Click
+              submit to save your answers.
             </p>
 
-            <AddDocument answers={answers} />
+            <AddDocument answers={answers} type={type} />
           </div>
         )}
       </div>

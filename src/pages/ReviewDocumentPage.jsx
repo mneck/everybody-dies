@@ -26,7 +26,6 @@ function ReviewDocumentPage(props) {
   const getDocument = (documentId) => {
     axios
       .get(`${API_URL}/api/documents/${documentId}`)
-      .then((response) => setDocumentData(response.data))
       .then(console.log("data"))
       .catch((error) => console.log(error));
   };
