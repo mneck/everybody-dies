@@ -5,7 +5,6 @@ import CueIds from "../constants/CueIds";
 // import getAnswerByCueId from "../pages/ReviewDocumentPage"; // TODO ask the bosses!
 
 function PoaForm({ answers }) {
-  console.log(answers);
   const getAnswerByCueId = (arr, cueId) =>
     arr.find((el) => el.cueId === cueId)?.answer;
 

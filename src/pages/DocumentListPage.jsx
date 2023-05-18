@@ -1,11 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/Auth-Context";
 import Footer from "../components/Footer";
 
 const API_URL = import.meta.env.VITE_APP_SERVER_URL;
 
 function DocumentListPage() {
+  const { isLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!isLoggedIn) {
+      // Redirect the user to the homepage if not LoggedIn
+      navigate("/");
+    }
+  }, [isLoggedIn]);
+
   const [documents, setDocuments] = useState([]);
 
   const getAllDocuments = () => {

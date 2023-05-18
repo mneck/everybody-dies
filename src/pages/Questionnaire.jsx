@@ -1,15 +1,21 @@
-import {
-  Link,
-  useParams,
-  useLocation,
-} from "react-router-dom";
-import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { AuthContext } from "../context/Auth-Context";
+import { useState, useEffect, useContext } from "react";
 import poaCues from "../constants/poaCues";
 import willCues from "../constants/willCues";
 import AddDocument from "../components/AddDocument";
 import Footer from "../components/Footer";
 
 function Questionnaire() {
+  const { isLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!isLoggedIn) {
+      // Redirect the user to the homepage if not LoggedIn
+      navigate("/");
+    }
+  }, [isLoggedIn]);
+
   const location = useLocation();
   const type = new URLSearchParams(location.search).get(
     "type"
