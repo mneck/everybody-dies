@@ -24,7 +24,7 @@ function PoaForm({ answers }) {
             answers,
             CueIds.AttorneyAddress
           )}
-          , Vancouver
+          .
         </p>
       </pre>
       <pre>
